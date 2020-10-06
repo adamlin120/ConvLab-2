@@ -44,9 +44,13 @@ RUN pip install quadprog
 RUN pip install pyyaml
 RUN pip install fuzzywuzzy
 RUN pip install python-Levenshtein
+RUN pip install colorama
+RUN pip install fuzzywuzzy
+RUN pip install spacy
 
 
 RUN [ "python", "-c", "import nltk; nltk.download('stopwords')" ]
+RUN [ "python", "-m", "spacy download en_core_web_sm" ]
 
 WORKDIR /root
 

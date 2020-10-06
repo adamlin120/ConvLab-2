@@ -1,8 +1,8 @@
 # Environment
 
-We use `transformers==3.2.0` in crosswoz-dst, multiwoz-dst and end2end
+Please use `dev.dockerfile` or `install.sh` to install required packages for BOTH END2END and DST evaluation.
 
-Please use `dev.dockerfile` or `install.sh` to install `transformers==3.2.0`
+We use `transformers==3.2.0` in crosswoz-dst and multiwoz-dst.
 
 Thank you!
 
