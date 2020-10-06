@@ -130,9 +130,9 @@ class MBartDSTChinese(DST):
 
             if not (domain and slot_name and slot_value):
                 continue
-            # domain = map_to_possible_value(domain, belief.keys())
-            # slot_name = map_to_possible_value(slot_name, belief[domain].keys())
-            # slot_value = map_to_possible_value(slot_value, ontology[domain][slot_name])
+            domain = map_to_possible_value(domain, belief.keys())
+            slot_name = map_to_possible_value(slot_name, belief[domain].keys())
+            slot_value = map_to_possible_value(slot_value, ontology[domain][slot_name])
 
             belief[domain][slot_name] = slot_value
         return belief
