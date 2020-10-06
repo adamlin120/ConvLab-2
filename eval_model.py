@@ -45,8 +45,8 @@ def evaluate(model_dir, subtask, test_data, gt):
         # pred[dialog_id] = [
         #     model.update_turn(sys_utt, user_utt) for sys_utt, user_utt, gt_turn in turns
         # ]
-        result = eval_states(gt, pred, subtask)
-        print(json.dumps(result, indent=4, ensure_ascii=False))
+        # result = eval_states(gt, pred, subtask)
+        # print(json.dumps(result, indent=4, ensure_ascii=False))
 
     json.dump(
         pred,
