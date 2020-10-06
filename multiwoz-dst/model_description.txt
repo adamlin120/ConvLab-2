@@ -1,3 +1,7 @@
+We use transformers==3.2.0 in crosswoz-dst, multiwoz-dst and end2end
+Please use dev.dockerfile or install.sh to install transformers==3.2.0
+Thank you!
+
 Submission 1: Autoregressive language model (gpt2) trained on monolingual data
 Submission 2: same as (1) but with different slot carrying method
 
