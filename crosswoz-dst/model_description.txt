@@ -1,0 +1,6 @@
+Submission 1: Autoregressive language model (gpt2) trained on monolingual data
+Submission 2: same as (1) but with different slot carrying method
+
+Submission 3: Seq2seq trained on monolingual data with monolingual denoising pretraining on multiple languages (mbart).
+Submission 4: Seq2seq trained on cross-lingual data with monolingual denoising pretraining on multiple languages (mbart).
+Submission 5: Seq2seq trained on cross-lingual cross-ontology data with monolingual denoising pretraining on multiple languages (mbart).

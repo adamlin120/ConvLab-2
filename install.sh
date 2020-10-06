@@ -1,0 +1,1 @@
+pip install transformers==3.2.0 --use-feature=2020-resolver
