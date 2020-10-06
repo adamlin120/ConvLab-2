@@ -1,0 +1,14 @@
+Please download the code and model by
+```
+bash download_end2end.sh
+```
+before evaluating.
+
+Usage:
+
+* automatic evaluation
+python automatic.py
+
+* human evaluation
+python human.py
+
