@@ -12,7 +12,7 @@ from convlab2.dst import DST
 from convlab2.dst.dstc9.utils import prepare_data, eval_states
 
 
-def evaluate(model_dir, subtask, test_data, gt):
+def evaluate(model_dir, subtask, test_data, gt, version):
     module = importlib.import_module(f"{subtask}-dst.{model_dir}")
     assert "Model" in dir(
         module
@@ -20,7 +20,7 @@ def evaluate(model_dir, subtask, test_data, gt):
     model_cls = module.__getattribute__("Model")
     assert issubclass(model_cls, DST), "the model must implement DST interface"
     # load weights, set eval() on default
-    model = model_cls()
+    model = model_cls(version)
     pred = {}
     ana = {}
     for dialog_id, turns in tqdm(test_data.items()):
@@ -50,7 +50,7 @@ def evaluate(model_dir, subtask, test_data, gt):
 
     json.dump(
         pred,
-        open(f"./{subtask}-dst/{model_dir}/pred_{args.split}.json", "w"),
+        open(f"./{subtask}-dst/{model_dir}/pred_{args.split}_{version}.json", "w"),
         indent=4,
         ensure_ascii=False,
     )
@@ -62,10 +62,16 @@ if __name__ == "__main__":
     parser.add_argument(
         "split",
         type=str,
-        choices=["train", "val", "test", "human_val", "dstc9-test-250"],
+        choices=["train", "val", "test", "human_val", "dstc9-250"],
     )
     parser.add_argument(
-        "submission", type=str, choices=[f"submission{i}" for i in range(1, 6)]
+        "submission",
+        type=str,
+        choices=[f"submission{i}" for i in range(1, 6)],
+    )
+    parser.add_argument(
+        "version",
+        type=str,
     )
     args = parser.parse_args()
     subtask = args.subtask
@@ -74,4 +80,4 @@ if __name__ == "__main__":
         dialog_id: [state for _, _, state in turns]
         for dialog_id, turns in test_data.items()
     }
-    evaluate(args.submission, subtask, test_data, gt)
+    evaluate(args.submission, subtask, test_data, gt, args.version)

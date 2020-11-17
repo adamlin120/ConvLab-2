@@ -43,14 +43,14 @@ def get_history_utterances(
 
 
 class MBartDSTEnglish(DST):
-    model_checkpoint = "ytlin/18tus53e"
     num_history_turns = -1
     lang = "en"
     lang_code = "en_XX"
     MAX_LENGTH = 512
     carry_slot_values = False
 
-    def __init__(self):
+    def __init__(self, version):
+        self.model_checkpoint = f"/home/r07946014/work/cldst/ckpts/{version}/{version}/"
         self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
         self.tokenizer = MBartTokenizer.from_pretrained(self.model_checkpoint)
